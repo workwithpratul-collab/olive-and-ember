@@ -1,0 +1,25 @@
+/* Olive & Ember — design foundation */
+
+:root {
+  --color-ivory: #F7F3EA;
+  --color-forest: #263D32;
+  --color-terracotta: #B9674B;
+  --color-olive: #85866A;
+  --color-charcoal: #292A26;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 32px;
+  background: var(--color-ivory);
+  color: var(--color-charcoal);
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: var(--color-forest);
+}
