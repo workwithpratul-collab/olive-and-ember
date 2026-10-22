@@ -27,25 +27,32 @@
 </head>
 
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
+ <header class="site-header">
+  <div class="container header-inner">
 
-      <!-- Brand -->
-      <a class="brand" href="#home" aria-label="Olive and Ember home">
-        <span class="brand-mark" aria-hidden="true">❧</span>
-
-        <span class="brand-copy">
-          <span class="brand-name">
-            OLIVE <span class="brand-ampersand">&amp;</span> EMBER
-          </span>
-
-          <span class="brand-subtitle">
-            MEDITERRANEAN KITCHEN
-          </span>
+    <a class="brand" href="#home" aria-label="Olive and Ember home">
+      <span class="brand-mark" aria-hidden="true">❧</span>
+      <span class="brand-copy">
+        <span class="brand-name">
+          OLIVE <span class="brand-ampersand">&amp;</span> EMBER
         </span>
-      </a>
+        <span class="brand-subtitle">MEDITERRANEAN KITCHEN</span>
+      </span>
+    </a>
 
-      <!-- Desktop navigation -->
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="site-navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="header-menu" id="site-navigation">
       <nav class="main-nav" aria-label="Main navigation">
         <a href="#home">Home</a>
         <a href="#story">Our Story</a>
@@ -55,28 +62,80 @@
         <a href="#location">Location</a>
       </nav>
 
-      <!-- Primary call to action -->
       <a class="button button-primary header-cta" href="#reservations">
         Reserve a Table
         <span class="button-arrow" aria-hidden="true">↗</span>
       </a>
-
     </div>
-  </header>
+
+  </div>
+</header>
 
   <main id="home">
-    <section class="header-preview container">
-      <p class="eyebrow">MEDITERRANEAN KITCHEN</p>
-      <h1>A little warmth, a lot of <em>flavour.</em></h1>
-      <p class="preview-copy">
+  <section class="hero container" aria-labelledby="hero-title">
+
+    <div class="hero-content">
+      <p class="eyebrow hero-eyebrow">MEDITERRANEAN KITCHEN</p>
+
+      <h1 id="hero-title">
+        A little warmth,<br>
+        a lot of <em>flavour.</em>
+      </h1>
+
+      <p class="hero-description">
         Seasonal ingredients. Flame-kissed dishes.
         A relaxed space for meaningful moments.
       </p>
-      <a class="button button-primary" href="#reservations">
-        Reserve a Table
-        <span class="button-arrow" aria-hidden="true">↗</span>
-      </a>
-    </section>
-  </main>
+
+      <div class="hero-actions">
+        <a class="button button-primary" href="#reservations">
+          Reserve a Table
+          <span class="button-arrow" aria-hidden="true">↗</span>
+        </a>
+
+        <a class="hero-secondary" href="#menu">
+          <span class="play-icon" aria-hidden="true">↘</span>
+          <span>Explore Our Menu</span>
+        </a>
+      </div>
+
+      <div class="hero-highlights">
+        <div class="hero-highlight">
+          <span class="highlight-icon" aria-hidden="true">✳</span>
+          <span>Seasonal<br>Ingredients</span>
+        </div>
+
+        <div class="hero-highlight">
+          <span class="highlight-icon" aria-hidden="true">♨</span>
+          <span>Flame-kissed<br>Cooking</span>
+        </div>
+
+        <div class="hero-highlight">
+          <span class="highlight-icon" aria-hidden="true">♡</span>
+          <span>Made for<br>Sharing</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <img
+        class="hero-image"
+        src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1400&q=85"
+        alt="A freshly prepared meal with seasonal vegetables and herbs"
+        fetchpriority="high"
+      >
+
+      <div class="hero-image-note">
+        <span class="image-note-line"></span>
+        <span>GOOD FOOD BRINGS<br>PEOPLE TOGETHER</span>
+      </div>
+
+      <span class="hero-image-number" aria-hidden="true">
+        EST. IN THE MEDITERRANEAN SPIRIT
+      </span>
+    </div>
+
+  </section>
+</main>
 </body>
 </html>
