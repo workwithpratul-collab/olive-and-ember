@@ -1,25 +1,411 @@
-/* Olive & Ember — design foundation */
+/* ========================================
+   OLIVE & EMBER — DESIGN SYSTEM
+======================================== */
 
 :root {
-  --color-ivory: #F7F3EA;
-  --color-forest: #263D32;
-  --color-terracotta: #B9674B;
-  --color-olive: #85866A;
-  --color-charcoal: #292A26;
+  /* Brand colours */
+  --color-ivory: #F5EFE3;
+  --color-olive: #252B1B;
+  --color-terracotta: #B5532E;
+  --color-sandstone: #D8C5A8;
+  --color-muted: #5E5A4D;
+  --color-white: #FFFFFF;
+
+  /* Typography */
+  --font-display: "Bodoni Moda", Georgia, serif;
+  --font-editorial: "Cormorant Garamond", Georgia, serif;
+  --font-body: "DM Sans", Arial, sans-serif;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 40px;
+  --space-6: 64px;
+  --space-7: 96px;
+
+  /* Layout */
+  --page-gutter: 5.7%;
+  --content-max: 1440px;
+
+  /* Buttons and transitions */
+  --radius-pill: 999px;
+  --transition-fast: 200ms ease;
 }
 
-* {
+/* Consistent sizing */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+/* Base document styles */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  padding: 32px;
-  background: var(--color-ivory);
-  color: var(--color-charcoal);
-  font-family: Arial, sans-serif;
+  background-color: var(--color-ivory);
+  color: var(--color-olive);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-h1 {
-  color: var(--color-forest);
+/* Media should never overflow its container */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Inherit typography in interactive elements */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Reusable page container */
+.container {
+  width: min(
+    calc(100% - (2 * var(--page-gutter))),
+    var(--content-max)
+  );
+  margin-inline: auto;
+}
+
+/* Accessible keyboard focus */
+:focus-visible {
+  outline: 3px solid var(--color-terracotta);
+  outline-offset: 4px;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* ========================================
+   HEADER — OLIVE & EMBER
+======================================== */
+
+.site-header {
+  position: relative;
+  z-index: 10;
+  background-color: var(--color-ivory);
+  border-bottom: 1px solid rgb(37 43 27 / 9%);
+}
+
+.header-inner {
+  min-height: 108px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+/* Brand identity */
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  flex-shrink: 0;
+  color: var(--color-olive);
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 43px;
+  height: 48px;
+  color: var(--color-olive);
+  font-family: var(--font-editorial);
+  font-size: 48px;
+  line-height: 1;
+  transform: rotate(-15deg);
+}
+
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.brand-name {
+  font-family: var(--font-editorial);
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 0.035em;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.brand-ampersand {
+  color: var(--color-terracotta);
+  font-style: italic;
+}
+
+.brand-subtitle {
+  font-family: var(--font-body);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.21em;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+/* Desktop navigation */
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(14px, 1.7vw, 28px);
+}
+
+.main-nav a {
+  position: relative;
+  color: var(--color-olive);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--transition-fast);
+}
+
+.main-nav a::after {
+  position: absolute;
+  right: 0;
+  bottom: -7px;
+  left: 0;
+  height: 1px;
+  background-color: var(--color-terracotta);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-fast);
+}
+
+.main-nav a:hover {
+  color: var(--color-terracotta);
+}
+
+.main-nav a:hover::after,
+.main-nav a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Reusable buttons */
+
+.button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  padding: 0 23px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.button-primary {
+  background-color: var(--color-olive);
+  color: var(--color-white);
+}
+
+.button-primary:hover {
+  background-color: var(--color-terracotta);
+  transform: translateY(-2px);
+}
+
+.button-arrow {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.header-cta {
+  flex-shrink: 0;
+}
+
+/* Temporary typography preview */
+
+.header-preview {
+  padding-top: clamp(80px, 12vw, 160px);
+  padding-bottom: 120px;
+}
+
+.eyebrow {
+  margin: 0 0 24px;
+  color: var(--color-terracotta);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+
+.header-preview h1 {
+  max-width: 780px;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6.2vw, 88px);
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 1.08;
+}
+
+.header-preview h1 em {
+  color: var(--color-terracotta);
+  font-weight: 400;
+}
+
+.preview-copy {
+  max-width: 440px;
+  margin: 24px 0 30px;
+  color: var(--color-muted);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* Tablet and smaller desktop screens */
+
+@media (max-width: 1100px) {
+  .header-inner {
+    gap: 18px;
+  }
+
+  .brand-name {
+    font-size: 21px;
+  }
+
+  .brand-mark {
+    width: 34px;
+    font-size: 40px;
+  }
+
+  .main-nav {
+    gap: 13px;
+  }
+
+  .main-nav a {
+    font-size: 11px;
+  }
+
+  .header-cta {
+    padding-inline: 16px;
+    font-size: 11px;
+  }
+}
+
+/* Mobile layout refinement.
+   We'll add the mobile menu interaction in a later part. */
+
+@media (max-width: 760px) {
+  .header-inner {
+    min-height: 82px;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-block: 14px;
+  }
+
+  .brand-name {
+    font-size: 21px;
+  }
+
+  .brand-subtitle {
+    font-size: 7px;
+  }
+
+  .brand-mark {
+    width: 30px;
+    height: 38px;
+    font-size: 36px;
+  }
+
+  .header-cta {
+    min-height: 42px;
+    padding-inline: 15px;
+    font-size: 11px;
+  }
+
+  .main-nav {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 8px 0 5px;
+  }
+
+  .main-nav a {
+    font-size: 12px;
+  }
+
+  .header-preview {
+    padding-top: 85px;
+    padding-bottom: 90px;
+  }
+
+  .header-preview h1 {
+    font-size: clamp(45px, 11vw, 66px);
+  }
+
+  .preview-copy {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  .header-inner {
+    gap: 10px;
+  }
+
+  .brand {
+    gap: 6px;
+  }
+
+  .brand-name {
+    font-size: 18px;
+  }
+
+  .brand-subtitle {
+    font-size: 6px;
+    letter-spacing: 0.15em;
+  }
+
+  .brand-mark {
+    width: 25px;
+    font-size: 32px;
+  }
+
+  .header-cta {
+    padding-inline: 11px;
+    font-size: 10px;
+  }
 }
