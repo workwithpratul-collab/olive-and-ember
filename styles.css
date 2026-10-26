@@ -1683,3 +1683,470 @@ select {
     transition: none;
   }
 }
+/* ========================================
+   EDITORIAL GALLERY
+======================================== */
+
+.gallery-section {
+  padding-block: clamp(64px, 8vw, 104px);
+  background: var(--color-ivory);
+  color: var(--color-olive);
+}
+
+.gallery-inner {
+  max-width: 1240px;
+}
+
+.gallery-header {
+  max-width: 680px;
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+
+.gallery-eyebrow {
+  margin: 0 0 16px;
+  color: var(--color-terracotta);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+}
+
+.gallery-header h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(38px, 4.5vw, 60px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.gallery-header h2 em {
+  color: var(--color-terracotta);
+  font-weight: 400;
+}
+
+.gallery-intro {
+  max-width: 460px;
+  margin: 16px 0 0;
+  color: var(--color-muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* Compact, seamless eight-image mosaic */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-areas:
+    "feature feature interior interior"
+    "feature feature ingredients ingredients"
+    "dish table table craft"
+    "grill gathering gathering gathering";
+  grid-auto-rows: clamp(110px, 13vw, 170px);
+  gap: 0;
+}
+
+.gallery-item {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  overflow: hidden;
+  background: var(--color-sandstone);
+  isolation: isolate;
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 400ms ease;
+}
+
+.gallery-item-feature {
+  grid-area: feature;
+  aspect-ratio: auto;
+}
+
+.gallery-item-interior {
+  grid-area: interior;
+}
+
+.gallery-item-ingredients {
+  grid-area: ingredients;
+}
+
+.gallery-item-dish {
+  grid-area: dish;
+}
+
+.gallery-item-table {
+  grid-area: table;
+}
+
+.gallery-item-craft {
+  grid-area: craft;
+}
+
+.gallery-item-grill {
+  grid-area: grill;
+}
+
+.gallery-item-gathering {
+  grid-area: gathering;
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  transition: transform 400ms ease;
+}
+
+.gallery-item figcaption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 28px 12px 11px;
+  background: linear-gradient(
+    to top,
+    rgb(25 29 19 / 78%),
+    rgb(25 29 19 / 0%)
+  );
+  color: var(--color-white);
+  font-family: var(--font-editorial);
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .gallery-item:hover img {
+    transform: scale(1.035);
+  }
+}
+
+/* Gallery footer */
+
+.gallery-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 26px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-sandstone);
+}
+
+.gallery-footer > p {
+  margin: 0;
+  color: var(--color-muted);
+  font-family: var(--font-editorial);
+  font-size: 18px;
+}
+
+.gallery-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-terracotta);
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.gallery-link span {
+  transition: transform 180ms ease;
+}
+
+.gallery-link:hover span {
+  transform: translate(3px, -3px);
+}
+
+.gallery-link:focus-visible {
+  outline: 2px solid var(--color-terracotta);
+  outline-offset: 5px;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-areas:
+      "feature feature interior interior"
+      "feature feature ingredients ingredients"
+      "dish dish table table"
+      "craft craft grill grill"
+      "gathering gathering gathering gathering";
+  }
+
+  .gallery-item-feature {
+    aspect-ratio: auto;
+  }
+
+  .gallery-item-gathering {
+    aspect-ratio: 2.2;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .gallery-section {
+    padding-block: 64px;
+  }
+
+  .gallery-header {
+    margin-bottom: 28px;
+  }
+
+  .gallery-header h2 {
+    font-size: clamp(38px, 9vw, 50px);
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "feature feature"
+      "interior ingredients"
+      "dish craft"
+      "grill table"
+      "gathering gathering";
+    grid-auto-rows: clamp(130px, 42vw, 210px);
+  }
+
+  .gallery-item,
+  .gallery-item-feature {
+    aspect-ratio: 1;
+  }
+
+  .gallery-item-gathering {
+    aspect-ratio: 1.5;
+  }
+
+  .gallery-item figcaption {
+    padding: 24px 9px 9px;
+    font-size: 13px;
+  }
+
+  .gallery-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 22px;
+  }
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-item img,
+  .gallery-link span {
+    transition: none;
+  }
+}
+/* ========================================
+   FOOTER — OLIVE & EMBER
+======================================== */
+
+.site-footer {
+  padding-top: clamp(52px, 7vw, 88px);
+  background: var(--color-olive);
+  color: var(--color-ivory);
+}
+
+.footer-inner {
+  max-width: 1240px;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 1.5fr 0.8fr 1fr 1fr;
+  gap: clamp(24px, 4vw, 56px);
+  padding-bottom: 54px;
+}
+
+.footer-brand,
+.footer-nav,
+.footer-visit,
+.footer-connect {
+  min-width: 0;
+}
+
+.footer-logo {
+  color: var(--color-ivory);
+  font-family: var(--font-editorial);
+  font-size: clamp(27px, 2.5vw, 36px);
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.footer-logo span {
+  color: #D9A083;
+  font-style: italic;
+}
+
+.footer-tagline {
+  margin: 12px 0 0;
+  color: #D9A083;
+  font-family: var(--font-editorial);
+  font-size: 17px;
+  font-style: italic;
+}
+
+.footer-description,
+.footer-visit p,
+.footer-connect p {
+  color: rgb(245 239 227 / 72%);
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.footer-description {
+  max-width: 280px;
+  margin: 18px 0 0;
+}
+
+.footer-nav h2,
+.footer-visit h2,
+.footer-connect h2 {
+  margin: 4px 0 20px;
+  color: var(--color-sandstone);
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.footer-nav {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.footer-nav a,
+.footer-visit > a,
+.footer-connect > a {
+  color: var(--color-ivory);
+  font-size: 12px;
+  line-height: 1.8;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.footer-nav a + a {
+  margin-top: 9px;
+}
+
+.footer-visit p,
+.footer-connect p {
+  margin: 0 0 7px;
+}
+
+.footer-visit > a,
+.footer-connect > a {
+  display: inline-block;
+  margin-top: 12px;
+  color: #D9A083;
+  font-weight: 600;
+}
+
+.footer-nav a:hover,
+.footer-visit > a:hover,
+.footer-connect > a:hover {
+  color: #D9A083;
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-block: 20px;
+  border-top: 1px solid rgb(245 239 227 / 18%);
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: rgb(245 239 227 / 60%);
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+.footer-bottom a {
+  color: var(--color-ivory);
+  font-size: 10px;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  color: #D9A083;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+  .footer-main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px 32px;
+  }
+
+  .footer-description {
+    max-width: 320px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .site-footer {
+    padding-top: 52px;
+  }
+
+  .footer-main {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 34px 20px;
+    padding-bottom: 38px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-logo {
+    font-size: 31px;
+  }
+
+  .footer-description {
+    max-width: 340px;
+  }
+
+  .footer-nav h2,
+  .footer-visit h2,
+  .footer-connect h2 {
+    margin-bottom: 14px;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-nav a,
+  .footer-visit > a,
+  .footer-connect > a {
+    transition: none;
+  }
+}
