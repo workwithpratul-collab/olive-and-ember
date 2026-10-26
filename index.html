@@ -303,6 +303,158 @@
       </p>
     </div>
   </section>
+    <!-- RESERVATIONS -->
+  <section
+    class="reservations"
+    id="reservations"
+    aria-labelledby="reservations-title"
+  >
+    <div class="container reservations-inner">
+
+      <!-- Left: Restaurant introduction -->
+      <div class="reservations-copy">
+        <p class="eyebrow reservations-eyebrow">
+          YOUR EVENING, OUR PLEASURE
+        </p>
+
+        <h2 id="reservations-title">
+          Your table is <em>waiting.</em>
+        </h2>
+
+        <p class="reservations-description">
+          Good food, slow evenings, and time well spent together.
+          Tell us when you'd like to visit, and let's make room
+          for something memorable.
+        </p>
+
+        <div class="reservations-details">
+          <div class="reservation-detail">
+            <span class="reservation-detail-label">THE EXPERIENCE</span>
+            <p>Thoughtful food. Warm hospitality. No rush.</p>
+          </div>
+
+          <div class="reservation-detail">
+            <span class="reservation-detail-label">PLANNING A SPECIAL OCCASION?</span>
+            <p>Leave us a note with your request.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Booking form -->
+      <div class="reservation-form-panel">
+        <div class="reservation-form-heading">
+          <p class="eyebrow">COME ON IN</p>
+          <h3>Make a reservation</h3>
+          <p>Share your preferred date and time with us.</p>
+        </div>
+
+        <form class="reservation-form" id="reservation-form">
+
+          <div class="reservation-field">
+            <label for="guest-name">Full name</label>
+            <input
+              type="text"
+              id="guest-name"
+              name="guestName"
+              autocomplete="name"
+              placeholder="Your name"
+              required
+            >
+          </div>
+
+          <div class="reservation-field">
+            <label for="guest-email">Email address</label>
+            <input
+              type="email"
+              id="guest-email"
+              name="guestEmail"
+              autocomplete="email"
+              placeholder="you@example.com"
+              required
+            >
+          </div>
+
+          <div class="reservation-fields-row">
+            <div class="reservation-field">
+              <label for="reservation-date">Preferred date</label>
+              <input
+                type="date"
+                id="reservation-date"
+                name="reservationDate"
+                required
+              >
+            </div>
+
+            <div class="reservation-field">
+              <label for="reservation-time">Preferred time</label>
+              <select
+                id="reservation-time"
+                name="reservationTime"
+                required
+              >
+                <option value="">Choose a time</option>
+                <option value="12:00">12:00 PM</option>
+                <option value="13:00">1:00 PM</option>
+                <option value="14:00">2:00 PM</option>
+                <option value="18:00">6:00 PM</option>
+                <option value="19:00">7:00 PM</option>
+                <option value="20:00">8:00 PM</option>
+                <option value="21:00">9:00 PM</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="reservation-field">
+            <label for="guest-count">Number of guests</label>
+            <select id="guest-count" name="guestCount" required>
+              <option value="1">1 guest</option>
+              <option value="2" selected>2 guests</option>
+              <option value="3">3 guests</option>
+              <option value="4">4 guests</option>
+              <option value="5">5 guests</option>
+              <option value="6">6 guests</option>
+              <option value="7">7 guests</option>
+              <option value="8">8 guests</option>
+            </select>
+          </div>
+
+          <div class="reservation-field">
+            <label for="special-requests">
+              Special requests <span>(optional)</span>
+            </label>
+            <textarea
+              id="special-requests"
+              name="specialRequests"
+              rows="3"
+              placeholder="A special occasion, dietary needs..."
+            ></textarea>
+          </div>
+
+          <button class="button button-primary reservation-submit" type="submit">
+            Request a table
+            <span class="button-arrow" aria-hidden="true">↗</span>
+          </button>
+
+          <p class="reservation-disclaimer">
+            Demo reservation form. Submitting a request will not
+            book a real table.
+          </p>
+
+          <p
+            class="reservation-feedback"
+            id="reservation-feedback"
+            role="status"
+            aria-live="polite"
+            tabindex="-1"
+            hidden
+          ></p>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+</main>
 </main>
 </body>
 </html>
