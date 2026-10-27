@@ -100,3 +100,37 @@ if (reservationForm && reservationDate && reservationFeedback) {
     });
   });
 }
+/* ========================================
+   DAY 11 — SCROLL REVEAL
+======================================== */
+
+(() => {
+  const revealElements = document.querySelectorAll(".reveal");
+
+  if (
+    !revealElements.length ||
+    !("IntersectionObserver" in window) ||
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  ) {
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries, currentObserver) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          currentObserver.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.12,
+      rootMargin: "0px 0px -40px 0px"
+    }
+  );
+
+  document.documentElement.classList.add("reveal-ready");
+
+  revealElements.forEach((element) => observer.observe(element));
+})();
