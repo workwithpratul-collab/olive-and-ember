@@ -40,16 +40,26 @@ if (menuToggle && headerMenu) {
   }
 });
 }
+
 /* ========================================
    RESERVATION FORM — DEMO
 ======================================== */
 
 const reservationForm = document.querySelector("#reservation-form");
 const reservationDate = document.querySelector("#reservation-date");
+const reservationTime = document.querySelector("#reservation-time");
 const reservationFeedback = document.querySelector("#reservation-feedback");
+const reservationSubmit = reservationForm?.querySelector(
+  'button[type="submit"]'
+);
 
-if (reservationForm && reservationDate && reservationFeedback) {
-  // Format today's date using the visitor's local calendar date.
+if (
+  reservationForm &&
+  reservationDate &&
+  reservationTime &&
+  reservationFeedback
+) {
+  // Get today's date using the visitor's local calendar.
   function getLocalDateString() {
     const today = new Date();
     const year = today.getFullYear();
@@ -59,21 +69,43 @@ if (reservationForm && reservationDate && reservationFeedback) {
     return `${year}-${month}-${day}`;
   }
 
+  // Get the current local time in HH:MM format.
+  function getLocalTimeString() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, "0");
+    const minutes = String(now.getMinutes()).padStart(2, "0");
+
+    return `${hours}:${minutes}`;
+  }
+
   // Prevent selecting a date in the past.
   reservationDate.min = getLocalDateString();
 
+  // Clear time validation when the visitor changes the date or time.
+  reservationDate.addEventListener("change", () => {
+    reservationTime.setCustomValidity("");
+  });
+
+  reservationTime.addEventListener("change", () => {
+    reservationTime.setCustomValidity("");
+  });
+
   reservationForm.addEventListener("submit", (event) => {
+    // This is a demo: never send the form to a server.
     event.preventDefault();
 
-    // Run the browser's built-in required-field and input validation.
+    reservationTime.setCustomValidity("");
+
+    // Run the browser's built-in required-field validation.
     if (!reservationForm.reportValidity()) {
       return;
     }
 
     const selectedDate = reservationDate.value;
+    const selectedTime = reservationTime.value;
     const today = getLocalDateString();
 
-    // Also check the date in JavaScript.
+    // Extra protection against past dates.
     if (selectedDate < today) {
       reservationDate.setCustomValidity(
         "Please choose today or a future date."
@@ -83,22 +115,57 @@ if (reservationForm && reservationDate && reservationFeedback) {
       return;
     }
 
-    const guestName = reservationForm.elements.guestName.value.trim();
+    // If the visitor chooses today, reject times that have passed.
+    if (
+      selectedDate === today &&
+      selectedTime <= getLocalTimeString()
+    ) {
+      reservationTime.setCustomValidity(
+        "That time has passed. Please choose a later time."
+      );
+      reservationTime.reportValidity();
+      reservationTime.setCustomValidity("");
+      return;
+    }
 
+    const guestName =
+      reservationForm.elements.guestName.value.trim();
+
+    // Display a demo confirmation without transmitting any information.
     reservationFeedback.textContent =
       `Thank you, ${guestName}! Your demo reservation request has been received for review. No real booking has been made.`;
 
-    reservationFeedback.hidden = false;
+ reservationFeedback.hidden = false;
 
-    // Bring the confirmation into view for keyboard and screen-reader users.
+if (reservationSubmit) {
+  reservationSubmit.disabled = true;
+  reservationSubmit.textContent = "Demo Request Submitted";
+}
+
+    // Bring the confirmation into view accessibly.
     reservationFeedback.focus({ preventScroll: true });
     reservationFeedback.scrollIntoView({
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      behavior: window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches
         ? "auto"
         : "smooth",
       block: "nearest"
     });
   });
+// Re-enable the button when the visitor edits the form.
+  function resetDemoSubmission() {
+    if (reservationSubmit && reservationSubmit.disabled) {
+      reservationSubmit.disabled = false;
+      reservationSubmit.textContent = "Request a table";
+
+      reservationFeedback.hidden = true;
+      reservationFeedback.textContent = "";
+    }
+  }
+
+  reservationForm.addEventListener("input", resetDemoSubmission);
+  reservationForm.addEventListener("change", resetDemoSubmission);
 }
 /* ========================================
    DAY 11 — SCROLL REVEAL

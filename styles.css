@@ -2545,3 +2545,10 @@ select {
     transition: none;
   }
 }
+/* Disabled reservation button */
+.reservation-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
