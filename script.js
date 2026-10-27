@@ -31,12 +31,14 @@ if (menuToggle && headerMenu) {
     }
   });
 
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      closeMenu();
-      menuToggle.focus();
-    }
-  });
+ document.addEventListener("keydown", (event) => {
+  const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+
+  if (event.key === "Escape" && isOpen) {
+    closeMenu();
+    menuToggle.focus();
+  }
+});
 }
 /* ========================================
    RESERVATION FORM — DEMO

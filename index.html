@@ -2,28 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Olive &amp; Ember | Mediterranean Dining</title>
 
   <meta
     name="description"
-    content="Olive & Ember — a little warmth, a lot of flavour. Discover our Mediterranean kitchen."
+    content="Discover Olive &amp; Ember, a warm Mediterranean-inspired dining experience built around thoughtful ingredients, beautiful food, and good company."
   >
 
-  <meta name="theme-color" content="#F5EFE3">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#252B1B">
 
-  <title>Olive & Ember | Mediterranean Kitchen</title>
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
+  <!-- Social sharing: Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Olive &amp; Ember | Mediterranean Dining">
+  <meta
+    property="og:description"
+    content="A little warmth, a lot of flavour. Discover the Olive &amp; Ember dining experience."
   >
+
+  <!-- Replace with your real public website URL when deployed -->
+  <!-- <meta property="og:url" content="https://your-domain.com/"> -->
+  <!-- <meta property="og:image" content="https://your-domain.com/images/og-image.jpg"> -->
+
+  <!-- Favicon: add this only after creating the favicon file -->
+  <!-- <link rel="icon" href="favicon.ico" sizes="any"> -->
+
+  <!-- Fonts -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+>
 
   <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -118,12 +133,13 @@
     </div>
 
     <div class="hero-visual">
-      <img
-        class="hero-image"
-        src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1400&q=85"
-        alt="A freshly prepared meal with seasonal vegetables and herbs"
-        fetchpriority="high"
-      >
+     <img
+  class="hero-image"
+  src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=700&q=65"
+  alt="A freshly prepared meal with seasonal vegetables and herbs"
+  fetchpriority="high"
+  decoding="async"
+>
 
       <div class="hero-image-note">
         <span class="image-note-line"></span>
@@ -171,11 +187,12 @@
 
     <div class="story-visual">
       <img
-        class="story-image"
-        src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=85"
-        alt="Warmly lit restaurant table set for an intimate dining experience"
-        loading="lazy"
-      >
+  class="story-image"
+  src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=600&q=65"
+  alt="Warmly lit restaurant table set for an intimate dining experience"
+  loading="lazy"
+  decoding="async"
+>
 
       <div class="story-image-note">
         <span class="story-note-number">01</span>
@@ -207,10 +224,11 @@
       <div class="menu-feature">
         <div class="menu-feature-image">
           <img
-            src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=85"
-            alt="A colourful Mediterranean-inspired dish prepared with fresh ingredients"
-            loading="lazy"
-          >
+  src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=500&q=65"
+  alt="A colourful Mediterranean-inspired dish prepared with fresh ingredients"
+  loading="lazy"
+  decoding="async"
+>
           <span class="menu-image-label">A FAVOURITE TO SHARE</span>
         </div>
 
@@ -510,10 +528,14 @@
       </figure>
 
       <figure class="gallery-item gallery-item-gathering">
-        <img src="https://images.unsplash.com/photo-1515003197210-e0cd7184f8b5?auto=format&fit=crop&w=800&q=80"
-          alt="A beautifully arranged meal ready to be enjoyed together" loading="lazy">
-        <figcaption>Gather around the table</figcaption>
-      </figure>
+  <img
+    src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80"
+    alt="Guests gathered around a beautifully arranged dining table"
+    loading="lazy"
+    decoding="async"
+  >
+  <figcaption>Gather around the table</figcaption>
+</figure>
     </div>
 
     <div class="gallery-footer">
@@ -524,6 +546,66 @@
     </div>
   </div>
 </section>
+<!-- LOCATION SECTION -->
+<section class="location-section" id="location" aria-labelledby="location-title">
+  <div class="location-inner">
+
+    <div class="location-content">
+      <p class="section-eyebrow">COME FIND US</p>
+
+      <h2 id="location-title">
+        Good food.<br>
+        Good company.<br>
+        <em>Right this way.</em>
+      </h2>
+
+      <p class="location-description">
+        Some of the best moments happen around a table.
+        Find your way to Olive &amp; Ember and make yourself at home.
+      </p>
+
+      <div class="location-details">
+        <div class="location-detail">
+          <span class="location-label">OUR ADDRESS</span>
+          <p>123 Olive Lane, Your City</p>
+          <small>Fictional address for portfolio demonstration</small>
+        </div>
+
+        <div class="location-detail">
+          <span class="location-label">OPENING HOURS</span>
+          <p>Monday – Sunday</p>
+          <p>12:00 PM – 10:00 PM</p>
+          <small>Sample hours for demonstration</small>
+        </div>
+      </div>
+
+      <a
+        class="location-directions"
+        href="https://www.google.com/maps"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Explore on Google Maps
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+
+    <div class="location-visual" aria-hidden="true">
+      <img
+        src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&amp;fit=crop&amp;w=1000&amp;q=85"
+        alt=""
+        loading="lazy"
+        decoding="async"
+      >
+      <div class="location-image-caption">
+        <span>OLIVE &amp; EMBER</span>
+        <span>A LITTLE WARMTH, A LOT OF FLAVOUR.</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+</main>
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="container footer-inner">
@@ -575,6 +657,6 @@
 
   </div>
 </footer>
-</main>
+<script src="script.js"></script>
 </body>
 </html>

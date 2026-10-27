@@ -255,12 +255,6 @@ select {
 }
 
 /* Temporary typography preview */
-
-.header-preview {
-  padding-top: clamp(80px, 12vw, 160px);
-  padding-bottom: 120px;
-}
-
 .eyebrow {
   margin: 0 0 24px;
   color: var(--color-terracotta);
@@ -268,29 +262,6 @@ select {
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.2em;
-}
-
-.header-preview h1 {
-  max-width: 780px;
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(48px, 6.2vw, 88px);
-  font-weight: 400;
-  letter-spacing: -0.055em;
-  line-height: 1.08;
-}
-
-.header-preview h1 em {
-  color: var(--color-terracotta);
-  font-weight: 400;
-}
-
-.preview-copy {
-  max-width: 440px;
-  margin: 24px 0 30px;
-  color: var(--color-muted);
-  font-size: 15px;
-  line-height: 1.9;
 }
 
 /* Tablet and smaller desktop screens */
@@ -1260,8 +1231,8 @@ select {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(36px, 7vw, 100px);
-  margin-top: clamp(76px, 9vw, 120px);
-  padding-top: 34px;
+  margin-top: clamp(56px, 6vw, 88px);
+  padding-top: 28px;
   border-top: 1px solid rgb(216 197 168 / 48%);
 }
 
@@ -2147,6 +2118,391 @@ select {
   .footer-nav a,
   .footer-visit > a,
   .footer-connect > a {
+    transition: none;
+  }
+}
+/* DAY 8 QA FIX — Gallery overlap on tablet and mobile */
+
+.gallery-grid {
+  position: relative;
+  height: auto;
+  margin-bottom: 48px;
+}
+
+.gallery-item {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-item figcaption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* Tablet */
+@media (min-width: 601px) and (max-width: 900px) {
+  .gallery-grid {
+    margin-bottom: 48px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .gallery-grid {
+    margin-bottom: 40px;
+  }
+}
+/* =========================================
+   LOCATION — PREMIUM EDITORIAL SECTION
+========================================= */
+
+.location-section {
+  background: var(--color-ivory);
+  color: var(--color-olive);
+  padding: clamp(3.5rem, 6vw, 5.5rem) clamp(1.25rem, 6vw, 6rem);
+  overflow: hidden;
+}
+
+.location-inner {
+  width: 100%;
+  max-width: 1240px;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: clamp(2rem, 4vw, 4rem);
+}
+
+.location-content {
+  width: 100%;
+  max-width: 490px;
+  padding-block: 0;
+}
+
+
+.location-section .section-eyebrow {
+  margin: 0 0 1.75rem;
+  color: var(--color-terracotta);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.location-section h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5.5vw, 5.5rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.location-section h2 em {
+  color: var(--color-terracotta);
+  font-family: var(--font-editorial);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+
+.location-description {
+  max-width: 390px;
+  margin: 2rem 0 2.75rem;
+  color: var(--color-muted);
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  line-height: 1.9;
+}
+
+.location-details {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  border-top: 1px solid var(--color-sandstone);
+  padding-top: 1.75rem;
+}
+
+.location-detail + .location-detail {
+  border-top: 1px solid var(--color-sandstone);
+  padding-top: 1.5rem;
+}
+
+.location-label {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: var(--color-terracotta);
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.location-detail p {
+  margin: 0.25rem 0;
+  font-family: var(--font-editorial);
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+
+.location-detail small {
+  display: block;
+  margin-top: 0.45rem;
+  color: var(--color-muted);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  line-height: 1.6;
+}
+
+.location-directions {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 2.25rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--color-terracotta);
+  color: var(--color-olive);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 180ms ease, border-color 180ms ease;
+}
+
+.location-directions span {
+  color: var(--color-terracotta);
+  font-size: 1.1rem;
+  transition: transform 180ms ease;
+}
+
+.location-directions:hover {
+  color: var(--color-terracotta);
+}
+
+.location-directions:hover span {
+  transform: translate(3px, -3px);
+}
+
+.location-directions:focus-visible {
+  outline: 2px solid var(--color-terracotta);
+  outline-offset: 5px;
+}
+
+.location-visual {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--color-sandstone);
+}
+
+
+.location-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 500ms ease;
+  will-change: transform;
+}
+
+.location-visual:hover img {
+  transform: scale(1.035);
+}
+
+.location-image-caption {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  padding: 1rem 1.15rem;
+  background: var(--color-ivory);
+  color: var(--color-olive);
+}
+
+.location-image-caption span:first-child {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+}
+
+.location-image-caption span:last-child {
+  color: var(--color-muted);
+  font-family: var(--font-body);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .location-inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+    gap: 2.5rem;
+  }
+
+  .location-section h2 {
+    font-size: clamp(2.8rem, 5.5vw, 4rem);
+  }
+
+  .location-image-caption {
+    right: 0.65rem;
+    bottom: 0.65rem;
+    left: 0.65rem;
+    padding: 0.8rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .location-section {
+    padding: 5rem 1.25rem;
+  }
+
+  .location-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.75rem;
+  }
+
+  .location-content {
+    max-width: none;
+    padding-block: 0;
+  }
+
+  .location-section h2 {
+    font-size: clamp(3.1rem, 12vw, 4.5rem);
+  }
+
+  .location-description {
+    margin-block: 1.5rem 2rem;
+  }
+
+  .location-details {
+    gap: 1rem;
+  }
+
+  .location-visual {
+    aspect-ratio: 0.95;
+  }
+
+  .location-image-caption {
+    right: 0.75rem;
+    bottom: 0.75rem;
+    left: 0.75rem;
+    padding: 0.9rem;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .location-visual img,
+  .location-directions,
+  .location-directions span {
+    transition: none;
+  }
+
+  .location-visual:hover img {
+    transform: none;
+  }
+}
+/* ========================================
+   REFINED IMAGE HOVER INTERACTIONS
+======================================== */
+
+/* Smooth zoom for the featured menu and story images */
+.menu-feature-image img,
+.story-image {
+  transition: transform 500ms ease;
+}
+
+/* Subtle zoom on devices that support mouse hover */
+@media (hover: hover) and (pointer: fine) {
+  .menu-feature-image:hover img,
+  .story-visual:hover .story-image {
+    transform: scale(1.035);
+  }
+}
+
+/* Keep image motion accessible */
+@media (prefers-reduced-motion: reduce) {
+  .menu-feature-image img,
+  .story-image {
+    transition: none;
+  }
+}
+/* Hero image hover refinement */
+.hero-image {
+  transition: transform 500ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero-visual:hover .hero-image {
+    transform: scale(1.035);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-image {
+    transition: none;
+  }
+}
+
+/* ========================================
+   BUTTON MICRO-INTERACTIONS
+======================================== */
+
+.button-primary,
+.hero-secondary {
+  transition:
+    background-color 250ms ease,
+    color 250ms ease,
+    border-color 250ms ease,
+    transform 250ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button-primary:hover {
+    transform: translateY(-2px);
+  }
+
+  .hero-secondary:hover {
+    color: var(--color-terracotta);
+  }
+
+  .hero-secondary:hover .play-icon {
+    transform: translate(2px, 2px);
+    border-color: var(--color-terracotta);
+  }
+}
+
+.button-primary:active {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button-primary,
+  .hero-secondary,
+  .play-icon {
     transition: none;
   }
 }
