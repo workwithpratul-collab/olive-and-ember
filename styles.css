@@ -7,6 +7,7 @@
   --color-ivory: #F5EFE3;
   --color-olive: #252B1B;
   --color-terracotta: #B5532E;
+  --color-terracotta-dark: #8F3E24;
   --color-sandstone: #D8C5A8;
   --color-muted: #5E5A4D;
   --color-white: #FFFFFF;
@@ -406,6 +407,7 @@ select {
 
 .hero-eyebrow {
   margin-bottom: 27px;
+  color: var(--color-terracotta-dark);
 }
 
 .hero-content h1 {
@@ -1371,7 +1373,7 @@ select {
 
 .reservations-eyebrow {
   margin: 0 0 24px;
-  color: var(--color-terracotta);
+  color: var(--color-terracotta-dark);
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -1413,7 +1415,7 @@ select {
 }
 
 .reservation-detail-label {
-  color: var(--color-terracotta);
+  color: var(--color-terracotta-dark);
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.16em;
