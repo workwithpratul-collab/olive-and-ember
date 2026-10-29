@@ -848,7 +848,7 @@ select {
 
 .story-eyebrow {
   margin: 0 0 24px;
-  color: var(--color-terracotta);
+  color: var(--color-terracotta-dark);
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.22em;
